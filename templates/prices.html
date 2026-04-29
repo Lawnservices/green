@@ -1,20 +1,103 @@
 {% extends "base.html" %}
 
-{% block extra_css%}
+{% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='prices.css') }}">
 {% endblock %}
 
 {% block content %}
+<h1>Our Prices</h1>
  
 
+ 
+<table id="contenido">
+    <caption class="titulo">
+        THE BEST PRICES IN THE AREA.
+    </caption>
 
-<h1>Our Prices</h1>
-
-<ul>
-    <li>Lawn mowing: $30 - $80</li>
-    <li>Yard clean-up: $50+</li>
-    <li>Mulch replacement: $100+</li>
-    <li>Trimming bushes: $40+</li>
-</ul>
-
-{% endblock %}
+    <tr id="principal">
+        <th class="id-s">id-S</th>
+        <th class="services">Services</th>
+        <th>Prices</th>
+    </tr>
+    <tr>
+        <td>
+            <img alt="Planting Flowers icon" src="https://img.icons8.com/fluency/28/null/sakura.png" loading="lazy" />
+        </td>
+        <td>Planting Flowers</td>
+        <td>Price starts at $360</td>
+    </tr>
+    <tr>
+        <td>
+            <img alt="Power Washing icon"
+                src="https://img.icons8.com/external-basicons-line-edtgraphics/28/null/external-bath-signs-basicons-line-edtgraphics.png"
+                loading="lazy" />
+        </td>
+        <td>Power Washing</td>
+        <td>Price starts at $360</td>
+    </tr>
+    <tr>
+        <td>
+            <img alt="Lawn Mowing icon" src="https://img.icons8.com/color/28/null/lawn-mower.png" loading="lazy" />
+        </td>
+        <td>Lawn Mowing</td>
+        <td>Price starts at $80</td>
+    </tr>
+    <tr>
+        <td>
+            <img alt="Yard Clean-Up icon" src="https://img.icons8.com/ios/28/null/yard-work.png" loading="lazy" />
+        </td>
+        <td>Yard Clean-Up</td>
+        <td>Price starts at $380</td>
+    </tr>
+    <tr>
+        <td>
+            <img alt="Leaf Removal icon" src="https://img.icons8.com/emoji/28/null/maple-leaf-emoji.png"
+                loading="lazy" />
+        </td>
+        <td>Leaf Removal</td>
+        <td>Price starts at $260</td>
+    </tr>
+    <tr>
+        <td>
+            <img alt="Fertilization icon"
+                src="https://img.icons8.com/external-flaticons-flat-flat-icons/28/null/external-fertilization-plants-flaticons-flat-flat-icons.png"
+                loading="lazy" />
+        </td>
+        <td>Fertilization</td>
+        <td>Price starts at $160</td>
+    </tr>
+    <tr>
+        <td>
+            <img width="28" height="28" alt="Mulch Replacement icon"
+                src="https://img.icons8.com/external-vectorslab-glyph-vectorslab/48/external-Mulch-construction-vectorslab-glyph-vectorslab.png"
+                loading="lazy" />
+        </td>
+        <td>Mulch Replacement</td>
+        <td>Price starts at $260</td>
+    </tr>
+    <tr>
+        <td>
+            <img width="28" height="28" alt="Trimming of Bushes icon" src="https://img.icons8.com/color/48/bush.png"
+                loading="lazy" />
+        </td>
+        <td>Trimming of Bushes</td>
+        <td>Price starts at $250</td>
+    </tr>
+    <tr>
+        <td>
+            <img width="28" height="28" alt="Weed Control icon" loading="lazy"
+                src="https://img.icons8.com/external-flaticons-flat-flat-icons/48/external-sprayer-farm-flaticons-flat-flat-icons.png" />
+        </td>
+        <td>Weed Control</td>
+        <td>Price starts at $160</td>
+    </tr>
+    <tr>
+        <td>
+            <img width="28" height="28" alt="planting seeds" loading="lazy"
+                src="https://img.icons8.com/isometric/50/paper-bag-with-seeds.png" />
+        </td>
+        <td>Planting Seeds</td>
+        <td>Price starts at $680</td>
+    </tr>
+</table>
+{% endblock%}

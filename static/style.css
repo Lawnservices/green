@@ -23,6 +23,7 @@ nav a {
     padding: 20px;
     max-width: 1200px;
     margin: 24px auto;
+    max-height: 1200px;
 }
 
 .hero {

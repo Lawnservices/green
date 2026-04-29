@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='galeria.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="hero">
     <h1>Professional Lawn Care Services</h1>
@@ -7,4 +11,7 @@
 
     <a class="btn" href="/contact">Get Free Estimate</a>
 </div>
+
+ 
+<div id="gallery" class="gallery"></div>
 {% endblock %}

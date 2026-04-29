@@ -21,6 +21,8 @@ nav a {
 
 .container {
     padding: 20px;
+    max-width: 1200px;
+    margin: 24px auto;
 }
 
 .hero {
@@ -43,6 +45,7 @@ nav a {
 }
 
 footer {
+    margin-top: 1800px;
     text-align: center;
     padding: 20px;
     background: #0b3d2e;

@@ -44,6 +44,12 @@ nav a {
     border-radius: 5px;
     font-weight: bold;
 }
+section h1{
+font-size: 36px;
+color: rgb(9, 63, 9);
+padding: 6px;
+text-align: center;
+}
 
 footer {
     

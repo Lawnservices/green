@@ -6,7 +6,7 @@
      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
        {% block extra_css %}{% endblock %}
     <link rel="shortcut icon" href="https://img.icons8.com/color/48/lawn-mower.png" type="image/x-icon">   
-    <title>Miguel Lawn Services</title>
+    <title>{% block title %}Miguel Lawn Services{% endblock%}</title>
 </head>
 <body>
     <nav>

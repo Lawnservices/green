@@ -4,21 +4,62 @@ body {
     background: #f4f4f4;
 }
  
-nav {
-    background: #0b3d2e;
-    color: white;
-    padding: 15px;
+ /* NAVBAR BASE */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-nav a {
+    padding: 15px 20px;
+    background: #0b3d2e;
     color: white;
-    margin: 0 10px;
-    text-decoration: none;
 }
 
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* BOTÓN HAMBURGUESA (OCULTO EN PC) */
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #06251d;
+        width:30%;
+        text-align:center;
+        padding: 10px 0;
+        border-radius: 0.2rem;
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+        padding: 2px;
+    }
+    .nav-links a:hover{
+    background-color: #2c2525;
+    }
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* todo luego del navegador */
 .container {
     flex: 1;
     padding: 20px;

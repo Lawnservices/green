@@ -3,7 +3,7 @@ body {
     font-family: Arial;
     background: #f4f4f4;
 }
-
+ 
 nav {
     background: #0b3d2e;
     color: white;
@@ -20,10 +20,11 @@ nav a {
 }
 
 .container {
+    flex: 1;
     padding: 20px;
     max-width: 1400px;
     margin: 24px auto;
-    max-height: 1200px;
+    
 }
 
 .hero {
@@ -50,6 +51,17 @@ color: rgb(9, 63, 9);
 padding: 6px;
 text-align: center;
 }
+#titulo{
+max-width: 1200px;
+margin: 24px auto;
+background-color: aliceblue;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+border-radius: 0.4rem;
+}
+#titulo p{
+font-size: 26px;
+padding: 16px;
+}
 
 footer {
     
@@ -57,7 +69,7 @@ footer {
     padding: 20px;
     background: #0b3d2e;
     color: white;
-    margin-top:600px;
+    margin-top: auto;
     clear: both;
     
 }

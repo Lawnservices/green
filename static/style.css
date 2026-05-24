@@ -92,6 +92,12 @@ color: rgb(9, 63, 9);
 padding: 6px;
 text-align: center;
 }
+.titulo{
+margin-top: 16px;
+}
+.titulo h2{
+color: #061125;
+}
 #titulo{
 max-width: 1200px;
 margin: 24px auto;
@@ -103,7 +109,10 @@ border-radius: 0.4rem;
 font-size: 26px;
 padding: 16px;
 }
-
+.one{
+ 
+margin-top:400px;
+}
 footer {
     
     text-align: center;

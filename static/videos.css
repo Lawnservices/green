@@ -58,6 +58,7 @@ main {
 /* ==============================
    VIDEO PLAYER
 ============================== */
+ 
 
 .player-container {
     margin-bottom: 45px;
@@ -71,7 +72,10 @@ main {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
-
+.player img{
+max-width: 60%;
+margin: 24px auto;
+}
 .player iframe {
     display: block;
     width: 100%;

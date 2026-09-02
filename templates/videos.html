@@ -11,27 +11,36 @@
 <main>
 
     <!-- VIDEO PLAYER -->
-    <section class="player-container">
+      
+<!-- VIDEO PLAYER -->
+<section class="player-container">
 
-        <div class="player">
+    <div class="player">
 
-            <iframe
-                id="youtubePlayer"
-                src=""
-                title="Jardines TV"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-            </iframe>
+        <!-- IMAGEN INICIAL -->
+        <img
+            id="playerPlaceholder"
+            src="{{ url_for('static', filename='images/review6.jpg') }}"
+            alt="Jardines TV"
+            class="player-placeholder"
+        >
 
-        </div>
+        <!-- YOUTUBE -->
+        <iframe
+            id="youtubePlayer"
+            src=""
+            title="Jardines TV"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
 
-        <h2 id="videoTitle">
-            Select a Video
-        </h2>
+    </div>
 
-    </section>
+    <h2 id="videoTitle">
+        Select a Video
+    </h2>
 
-
+</section>
     <!-- VIDEOS -->
     <section>
 
@@ -75,24 +84,36 @@
 </main>
 
 
+ 
 <script>
 function playVideo(videoId, title) {
 
     const player = document.getElementById("youtubePlayer");
+    const placeholder = document.getElementById("playerPlaceholder");
     const videoTitle = document.getElementById("videoTitle");
+
+    // Ocultar imagen inicial
+    placeholder.style.display = "none";
+
+    // Mostrar video
+    player.style.display = "block";
 
     player.src =
         "https://www.youtube.com/embed/" +
         videoId +
         "?autoplay=1&rel=0";
 
+    // Cambiar título
     videoTitle.textContent = title;
 
+    // Subir al reproductor
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 }
 </script>
+ 
+
 
 {% endblock %}

@@ -1,122 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
 
-    <title>JardinesTV - Videos</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='videos.css') }}">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-        }
+<header class="header">
+    <h1>Jardines TV</h1>
+    <p>Videos</p>
+</header>
 
-        header {
-            padding: 20px;
-            text-align: center;
-            background: #1b1b1b;
-        }
+<main>
 
-        .videos-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+    <!-- VIDEO PLAYER -->
+    <section class="player-container">
 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
+        <div class="player">
 
-        .video-card {
-            background: #222;
-            border-radius: 12px;
-            overflow: hidden;
-        }
+            <iframe
+                id="youtubePlayer"
+                src=""
+                title="Jardines TV"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
 
-        .video-card img {
-            width: 100%;
-            display: block;
-        }
+        </div>
 
-        .video-info {
-            padding: 15px;
-        }
+        <h2 id="videoTitle">
+            Select a Video
+        </h2>
 
-        .video-info h2 {
-            font-size: 18px;
-            margin: 0 0 10px;
-        }
+    </section>
 
-        .video-info a {
-            display: inline-block;
-            padding: 10px 15px;
-            background: #e62117;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-        }
 
-        .video-info a:hover {
-            background: #ff3025;
-        }
-    </style>
-</head>
+    <!-- VIDEOS -->
+    <section>
 
-<body>
+        <h2 class="section-title">
+            Jardines TV Videos
+        </h2>
 
-    <header>
-        <h1>🌱 JardinesTV</h1>
-        <p>Latest Videos</p>
-    </header>
+        {% if videos %}
 
-    <main class="videos-container">
+        <div class="videos">
 
-        {% for video in videos %}
+            {% for video in videos %}
 
-        <article class="video-card">
+            <article class="video-card"
+                     onclick="playVideo('{{ video.id }}', '{{ video.title|e }}')">
 
-            <a
-                href="https://www.youtube.com/watch?v={{ video.id }}"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
                 <img
                     src="{{ video.thumbnail }}"
-                    alt="{{ video.title }}"
+                    alt="{{ video.title|e }}"
                     loading="lazy"
                 >
-            </a>
 
-            <div class="video-info">
+                <h3>{{ video.title }}</h3>
 
-                <h2>
-                    {{ video.title }}
-                </h2>
+            </article>
 
-                <a
-                    href="https://www.youtube.com/watch?v={{ video.id }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    ▶ Watch Video
-                </a>
+            {% endfor %}
 
-            </div>
-
-        </article>
+        </div>
 
         {% else %}
 
-        <p>No videos found.</p>
+        <p class="no-videos">
+            No videos are available at this time.
+        </p>
 
-        {% endfor %}
+        {% endif %}
 
-    </main>
+    </section>
 
-</body>
+</main>
 
-</html>
+
+<script>
+function playVideo(videoId, title) {
+
+    const player = document.getElementById("youtubePlayer");
+    const videoTitle = document.getElementById("videoTitle");
+
+    player.src =
+        "https://www.youtube.com/embed/" +
+        videoId +
+        "?autoplay=1&rel=0";
+
+    videoTitle.textContent = title;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+</script>
+
+{% endblock %}

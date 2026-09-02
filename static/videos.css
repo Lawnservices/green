@@ -1,0 +1,304 @@
+/* ==============================
+   RESET
+============================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==============================
+   BODY
+============================== */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    line-height: 1.5;
+}
+
+
+/* ==============================
+   HEADER
+============================== */
+
+.header {
+    background: #ffffff;
+    text-align: center;
+    padding: 20px 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #666;
+    font-size: 17px;
+}
+
+
+/* ==============================
+   MAIN
+============================== */
+
+main {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ==============================
+   VIDEO PLAYER
+============================== */
+
+.player-container {
+    margin-bottom: 45px;
+}
+
+.player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.player iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#videoTitle {
+    margin-top: 15px;
+    font-size: 22px;
+    line-height: 1.4;
+    color: #222;
+}
+
+
+/* ==============================
+   SECTION TITLE
+============================== */
+
+.section-title {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+
+/* ==============================
+   VIDEOS GRID
+============================== */
+
+.videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding-bottom: 40px;
+}
+
+
+/* ==============================
+   VIDEO CARD
+============================== */
+
+.video-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==============================
+   VIDEO THUMBNAIL
+============================== */
+
+.video-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+
+/* ==============================
+   VIDEO TITLE
+============================== */
+
+.video-card h3 {
+    padding: 15px;
+    font-size: 17px;
+    line-height: 1.4;
+    color: #222;
+}
+
+
+/* ==============================
+   LOADING
+============================== */
+
+#loading {
+    padding: 20px 0;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+}
+
+
+/* ==============================
+   ERROR
+============================== */
+
+#error {
+    color: #c00;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* ==============================
+   NO VIDEOS
+============================== */
+
+.no-videos {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    color: #666;
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 900px) {
+
+    main {
+        width: 94%;
+    }
+
+    .videos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    #videoTitle {
+        font-size: 20px;
+    }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 600px) {
+
+    main {
+        width: 95%;
+    }
+
+    .header {
+        padding: 15px 10px;
+        margin-bottom: 20px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+
+    .player-container {
+        margin-bottom: 30px;
+    }
+
+    .player {
+        border-radius: 8px;
+    }
+
+    #videoTitle {
+        margin-top: 12px;
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .videos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .video-card {
+        border-radius: 10px;
+    }
+
+    .video-card h3 {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+
+/* ==============================
+   SMALL PHONES
+============================== */
+
+@media (max-width: 400px) {
+
+    main {
+        width: 96%;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    #videoTitle {
+        font-size: 17px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .video-card h3 {
+        font-size: 15px;
+    }
+}

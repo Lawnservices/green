@@ -302,3 +302,9 @@ main {
         font-size: 15px;
     }
 }
+
+.video-views {
+    padding: 0 15px 15px;
+    color: #666;
+    font-size: 14px;
+}

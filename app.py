@@ -22,8 +22,7 @@ def contact():
 
 # nuevo 
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
-
-#YOUTUBE_API_KEY = "AIzaSyA7EwPFyuZEGId8om24B0y1AFaC-vy8vVs"
+ 
 # ID de tu canal de YouTube
 YOUTUBE_CHANNEL_ID = "UC8Q51GWY9f5YsIQyLwNMfbw"
 

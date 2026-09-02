@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JardinesTV - Videos</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #1b1b1b;
+        }
+
+        .videos-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: #222;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h2 {
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+
+        .video-info a {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #e62117;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .video-info a:hover {
+            background: #ff3025;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🌱 JardinesTV</h1>
+        <p>Latest Videos</p>
+    </header>
+
+    <main class="videos-container">
+
+        {% for video in videos %}
+
+        <article class="video-card">
+
+            <a
+                href="https://www.youtube.com/watch?v={{ video.id }}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="{{ video.thumbnail }}"
+                    alt="{{ video.title }}"
+                    loading="lazy"
+                >
+            </a>
+
+            <div class="video-info">
+
+                <h2>
+                    {{ video.title }}
+                </h2>
+
+                <a
+                    href="https://www.youtube.com/watch?v={{ video.id }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ▶ Watch Video
+                </a>
+
+            </div>
+
+        </article>
+
+        {% else %}
+
+        <p>No videos found.</p>
+
+        {% endfor %}
+
+    </main>
+
+</body>
+
+</html>

@@ -45,9 +45,8 @@
 
             {% for video in videos %}
 
-            <article
-                class="video-card"
-                onclick="playVideo('{{ video.id }}', {{ video.title|tojson }})">
+            <article class="video-card"
+                     onclick="playVideo('{{ video.id }}', '{{ video.title|e }}')">
 
                 <img
                     src="{{ video.thumbnail }}"
@@ -55,13 +54,7 @@
                     loading="lazy"
                 >
 
-                <h3>
-                    {{ video.title }}
-                </h3>
-
-                <p class="video-views">
-                    👁️ {{ "{:,}".format(video.views|int) }} views
-                </p>
+                <h3>{{ video.title }}</h3>
 
             </article>
 
@@ -83,14 +76,10 @@
 
 
 <script>
-
 function playVideo(videoId, title) {
 
-    const player =
-        document.getElementById("youtubePlayer");
-
-    const videoTitle =
-        document.getElementById("videoTitle");
+    const player = document.getElementById("youtubePlayer");
+    const videoTitle = document.getElementById("videoTitle");
 
     player.src =
         "https://www.youtube.com/embed/" +
@@ -104,7 +93,6 @@ function playVideo(videoId, title) {
         behavior: "smooth"
     });
 }
-
 </script>
 
 {% endblock %}

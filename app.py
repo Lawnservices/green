@@ -1,6 +1,6 @@
 import os
 import requests
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -22,26 +22,21 @@ def contact():
 
 # nuevo 
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
-
-YOUTUBE_CHANNEL_ID = "UCvAAQ-XjDtww6RWLmltErCw"
+ 
+# ID de tu canal de YouTube
+YOUTUBE_CHANNEL_ID = "UC8Q51GWY9f5YsIQyLwNMfbw"
 
 
 def obtener_videos_youtube(max_results=20):
 
-    if not YOUTUBE_API_KEY:
-        print("ERROR: YOUTUBE_API_KEY is not configured")
-        return []
-
-    # ==========================================
-    # 1. GET UPLOADS PLAYLIST
-    # ==========================================
-
+    # 1. Obtener el Uploads Playlist ID
     channel_url = "https://www.googleapis.com/youtube/v3/channels"
 
     channel_params = {
         "part": "contentDetails",
         "key": YOUTUBE_API_KEY,
         "id": YOUTUBE_CHANNEL_ID
+        
     }
 
     channel_response = requests.get(
@@ -51,10 +46,11 @@ def obtener_videos_youtube(max_results=20):
     )
 
     if channel_response.status_code != 200:
-        print("YOUTUBE CHANNEL ERROR")
-        print(channel_response.status_code)
-        print(channel_response.text)
-        return []
+         print("ERROR DE YOUTUBE")
+         print("CODIGO:", channel_response.status_code)
+         print("RESPUESTA:", channel_response.text)
+         return []
+        
 
     channel_data = channel_response.json()
 
@@ -68,11 +64,7 @@ def obtener_videos_youtube(max_results=20):
         ["uploads"]
     )
 
-
-    # ==========================================
-    # 2. GET VIDEOS
-    # ==========================================
-
+    # 2. Obtener los videos
     playlist_url = "https://www.googleapis.com/youtube/v3/playlistItems"
 
     playlist_params = {
@@ -88,18 +80,9 @@ def obtener_videos_youtube(max_results=20):
         timeout=10
     )
 
-    if playlist_response.status_code != 200:
-        print("YOUTUBE PLAYLIST ERROR")
-        print(playlist_response.status_code)
-        print(playlist_response.text)
-        return []
+    playlist_response.raise_for_status()
 
     playlist_data = playlist_response.json()
-
-
-    # ==========================================
-    # 3. CREATE VIDEO LIST
-    # ==========================================
 
     videos = []
 
@@ -113,82 +96,15 @@ def obtener_videos_youtube(max_results=20):
             "title": snippet["title"],
             "description": snippet["description"],
             "thumbnail": snippet["thumbnails"]["high"]["url"],
-            "published_at": snippet["publishedAt"],
-            "views": 0
+            "published_at": snippet["publishedAt"]
         })
-
-
-    # ==========================================
-    # 4. GET VIEW COUNTS
-    # ==========================================
-
-    if videos:
-
-        video_ids = ",".join(
-            video["id"] for video in videos
-        )
-
-        stats_url = "https://www.googleapis.com/youtube/v3/videos"
-
-        stats_params = {
-            "part": "statistics",
-            "id": video_ids,
-            "key": YOUTUBE_API_KEY
-        }
-
-        stats_response = requests.get(
-            stats_url,
-            params=stats_params,
-            timeout=10
-        )
-
-        if stats_response.status_code == 200:
-
-            stats_data = stats_response.json()
-
-            view_counts = {}
-
-            for item in stats_data.get("items", []):
-
-                video_id = item["id"]
-
-                views = item.get(
-                    "statistics",
-                    {}
-                ).get(
-                    "viewCount",
-                    "0"
-                )
-
-                view_counts[video_id] = views
-
-
-            # Add views to each video
-            for video in videos:
-
-                video["views"] = view_counts.get(
-                    video["id"],
-                    "0"
-                )
-
 
     return videos
 
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/prices")
-def prices():
-    return render_template("prices.html")
-
-
-@app.route("/photos")
-def photos():
-    return render_template("photos.html")
-
+# ==========================================
+# PÁGINA DE VIDEOS
+# ==========================================
 
 @app.route("/videos")
 def videos():
@@ -200,10 +116,6 @@ def videos():
         videos=youtube_videos
     )
 
-
-@app.errorhandler(404)
-def pagina_no_encontrada(error):
-    return redirect("/photos")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=10000)

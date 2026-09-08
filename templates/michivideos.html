@@ -1,5 +1,34 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='michi.css')}}"> 
 {% block content %}
+<header class="hero">
+
+    <img
+        src="{{ url_for('static', filename='images/michi.jpg') }}"
+        alt="Foto de Michi"
+        class="hero-img"
+    >
+
+    <h1>Michi — El Gato Más Cool 😎</h1>
+
+    <p>Bienvenido a la página oficial de Michi, el rey de la casa.</p>
+
+    <nav class="michi-nav">
+
+        <a href="#sobre" class="nav-btn">
+            🐱 Sobre Michi
+        </a>
+
+        <a href="{{ url_for('videos') }}" class="nav-btn videos-btn">
+            🎬 MichiVideos
+        </a>
+
+        <a href="#galeria" class="nav-btn">
+            📸 Galería
+        </a>
+
+    </nav>
+
+</header>
 <section class="player-container">
 
     <!-- Reproductor -->

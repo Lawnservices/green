@@ -5,36 +5,220 @@ body {
     color: #333;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #ffcc80, #ffab40);
-    color: #fff;
+
+    background: linear-gradient(
+        135deg,
+        #fff8e7,
+        #ffe4ec
+    );
 }
+
+/* Foto de Michi */
 
 .hero-img {
     width: 220px;
-    height:220px;
-    border-radius:50%;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-     
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 6px solid white;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+
+    margin-bottom: 25px;
 }
 
-.hero button {
-    margin: 10px;
-    padding: 12px 20px;
-    border: none;
+/* Título */
+
+.hero h1 {
+    margin: 10px 0;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    color: #333;
+}
+
+/* Descripción */
+
+.hero p {
+    max-width: 650px;
+
+    margin: 10px auto 30px;
+
+    font-size: clamp(1rem, 2vw, 1.3rem);
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+.michi-nav {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+    max-width: 700px;
+}
+
+
+/* Botones */
+
+.nav-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 150px;
+
+    padding: 14px 22px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: #333;
+
+    background: white;
+
+    border: 2px solid transparent;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* Hover PC */
+
+.nav-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+
     background: #fff;
-    color: #ff6f00;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
-.hero button:hover {
-    background: #ffe0b2;
+
+/* Botón de videos */
+
+.videos-btn {
+    background: #222;
+
+    color: white;
 }
+
+
+/* Hover Videos */
+
+.videos-btn:hover {
+    background: #000;
+
+    color: white;
+
+    transform: translateY(-5px) scale(1.03);
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 35px 15px;
+    }
+
+    .hero-img {
+        width: 170px;
+        height: 170px;
+
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+
+        margin-bottom: 25px;
+    }
+
+    .michi-nav {
+        flex-direction: column;
+
+        gap: 12px;
+
+        width: 100%;
+    }
+
+    .nav-btn {
+        width: 90%;
+
+        max-width: 350px;
+
+        box-sizing: border-box;
+
+        padding: 15px 20px;
+    }
+}
+
+
+/* =========================
+   PANTALLAS GRANDES
+========================= */
+
+@media (min-width: 1000px) {
+
+    .nav-btn {
+        min-width: 170px;
+
+        padding: 16px 25px;
+
+        font-size: 1.05rem;
+    }
+}
+
+
 
 .section {
     padding: 40px 20px;

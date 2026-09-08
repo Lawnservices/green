@@ -184,72 +184,49 @@ main {
    VIDEO PLAYER
 ============================== */
 
+
 .player-container {
     margin-bottom: 45px;
 }
 
-
 .player {
     width: 100%;
-
     aspect-ratio: 16 / 9;
-
     background: #000;
-
     border-radius: 12px;
-
     overflow: hidden;
-
-    box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.15);
-
-    /* Igual que tu primer código */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 }
 
-
-/* ==============================
-   IMAGEN DEL PLAYER
-============================== */
-
+/* Imagen que aparece antes de reproducir */
 .player-placeholder {
     width: auto;
-
     height: auto;
-
     max-width: 60%;
-
     max-height: 80%;
-
     object-fit: contain;
-
     display: block;
 }
 
-
-/* ==============================
-   IFRAME DEL PLAYER
-============================== */
-
+/* YouTube */
 .player iframe {
     width: 100%;
-
     height: 100%;
-
     border: none;
-
     display: none;
 }
 
+#videoTitle {
+    margin-top: 15px;
+    font-size: 22px;
+    line-height: 1.4;
+    color: #222;
+}
 
-/* ==============================
-   TITULO DEL VIDEO
-============================== */
 
 #videoTitle {
     margin-top: 15px;

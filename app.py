@@ -162,3 +162,9 @@ def michi():
 def michivideos():
     youtube_videos = videos_youtube(200)
     return render_template("michivideos.html", videos=youtube_videos)
+
+
+@app.errorhandler(404)
+def pagina_no_encontrada(error):
+    return render_template("error.html"), 404
+

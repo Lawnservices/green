@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Página no encontrada — Michi</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='error.css') }}">
+
+</head>
+
+<body>
+
+    <main class="error-container">
+
+        <div class="error-card">
+
+            <img
+                src="{{ url_for('static', filename='images/michi.jpg') }}"
+                alt="Michi"
+                class="michi-img"
+            >
+
+            <div class="error-number">
+                404
+            </div>
+
+            <h1>
+                ¡Michi no encontró esa página! 🐱
+            </h1>
+
+            <p>
+                Parece que esta página se perdió.
+                Tal vez Michi la está buscando debajo del sofá. 😹
+            </p>
+
+            <a href="{{ url_for('index') }}"
+               class="home-btn">
+                🏠 Volver al inicio
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
+

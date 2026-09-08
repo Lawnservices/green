@@ -12,7 +12,7 @@ body {
 
 .hero {
     width: 100%;
-    min-height: 100vh;
+    min-height:6vh;
     padding: 50px 20px;
     box-sizing: border-box;
 

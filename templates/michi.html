@@ -45,37 +45,23 @@
     <h2 class="section-title">
          Videos de Michi
     </h2>
-
     {% if videos %}
-
-    <div class="video">
-
-        {% for video in videos %}
-
+<div class="videos">
+    {% for video in videos %}
         <article class="video-card"
                  onclick="playVideo('{{ video.id }}', '{{ video.title|e }}')">
 
-            <img
-                src="{{ video.thumbnail }}"
-                alt="{{ video.title|e }}"
-                loading="lazy"
-            >
-
+            <img src="{{ video.thumbnail }}" alt="{{ video.title|e }}" loading="lazy">
             <h3>{{ video.title }}</h3>
 
         </article>
+    {% endfor %}
+</div>
+{% else %}
+<p class="no-videos">No videos are available at this time.</p>
+{% endif %}
 
-        {% endfor %}
-
-    </div>
-
-    {% else %}
-
-    <p class="no-videos">
-        No videos are available at this time.
-    </p>
-
-    {% endif %}
+    
 
 </section>
 

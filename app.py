@@ -158,3 +158,7 @@ def videos_youtube(max_results=200):
 def michi():
     youtube_videos = videos_youtube(200)
     return render_template("michi.html", videos=youtube_videos)
+
+@app.route("/michivideos")
+def michivideos():
+    return render_template("michivideos.html")

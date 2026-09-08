@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='michi.css')}}"> 
+{% block content %}
+<section class="player-container">
+
+    <!-- Reproductor -->
+    <div class="player">
+        <img id="playerPlaceholder"
+             src="{{ url_for('static', filename='images/michi.jpg') }}"
+             alt="Michi video placeholder"
+             class="player-placeholder">
+
+        <iframe id="youtubePlayer"
+                src=""
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <h2 id="videoTitle"></h2>
+
+</section>
+
+ 
+<section id="videos">
+
+    <h2 class="section-title">Videos de Michi</h2>
+
+    {% if videos %}
+
+    <div class="videos">
+
+        {% for video in videos %}
+
+        <article class="video-card"
+                 onclick="playVideo('{{ video.id }}', '{{ video.title|e }}')">
+
+            <img src="{{ video.thumbnail }}"
+                 alt="{{ video.title|e }}"
+                 loading="lazy">
+
+            <h3>{{ video.title }}</h3>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <p class="no-videos">No videos are available at this time.</p>
+
+    {% endif %}
+
+</section>
+ <footer>
+        <p>© 2026 Michi — Página creada por Miguel Laguna</p>
+        <a href="https://www.youtube.com/channel/UCuY2tmTA99EaUW214gP6EMg" target="_blank">YouTube</a> 
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+    </footer>
+{% endblock %}

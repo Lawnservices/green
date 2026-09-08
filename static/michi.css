@@ -14,26 +14,9 @@ body {
 
 .hero-img {
     width: 220px;
-    height:220px;
-    border-radius:50%;
+    height: 220px;
+    border-radius: 50%;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
-     
-}
-
-.hero button {
-    margin: 10px;
-    padding: 12px 20px;
-    border: none;
-    background: #fff;
-    color: #ff6f00;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.hero button:hover {
-    background: #ffe0b2;
 }
 
 .section {
@@ -54,31 +37,48 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.video-container {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
+/* ============================
+   REPRODUCTOR
+============================ */
 
-iframe {
-    width: 90%;
-    max-width: 600px;
-    height: 350px;
-    border-radius: 15px;
-    border: none;
-}
-
-footer {
+.player-container {
+    margin-bottom: 45px;
     text-align: center;
-    padding: 20px;
-    background: #ffcc80;
-    color: #fff;
 }
 
+.player {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
 
-/* ==============================
-   VIDEOS GRID
-============================== */
+.player-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#youtubePlayer {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+}
+
+#videoTitle {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #222;
+}
+
+/* ============================
+   GRID DE VIDEOS
+============================ */
 
 .videos {
     display: grid;
@@ -87,19 +87,12 @@ footer {
     padding-bottom: 40px;
 }
 
-
-/* ==============================
-   VIDEO CARD
-============================== */
-
 .video-card {
     background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -108,34 +101,17 @@ footer {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-/* ==============================
-   VIDEO THUMBNAIL
-============================== */
-
 .video-card img {
-    display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
 
-
-/* ==============================
-   VIDEO TITLE
-============================== */
-
 .video-card h3 {
     padding: 15px;
     font-size: 17px;
-    line-height: 1.4;
     color: #222;
 }
-
-
-/* ==============================
-   NO VIDEOS
-============================== */
 
 .no-videos {
     background: #ffffff;
@@ -145,31 +121,14 @@ footer {
     color: #666;
 }
 
-
-/* ==============================
-   TABLET
-============================== */
-
 @media (max-width: 900px) {
     .videos {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
     }
 }
-
-
-/* ==============================
-   MOBILE
-============================== */
 
 @media (max-width: 600px) {
     .videos {
         grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .video-card h3 {
-        padding: 12px;
-        font-size: 16px;
     }
 }

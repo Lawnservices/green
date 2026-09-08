@@ -23,52 +23,38 @@ def contact():
  
 
  
-
-# nuevo 
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
- 
-# ID de tu canal de YouTube
-YOUTUBE_CHANNEL_ID = "UC8Q51GWY9f5YsIQyLwNMfbw"
 
+# ==========================================
+# CANAL PRINCIPAL
+# ==========================================
 
 def obtener_videos_youtube(max_results=20):
 
-    # 1. Obtener el Uploads Playlist ID
+    canal_principal = "UC8Q51GWY9f5YsIQyLwNMfbw"
+
     channel_url = "https://www.googleapis.com/youtube/v3/channels"
 
     channel_params = {
         "part": "contentDetails",
         "key": YOUTUBE_API_KEY,
-        "id": YOUTUBE_CHANNEL_ID
-        
+        "id": canal_principal
     }
 
-    channel_response = requests.get(
-        channel_url,
-        params=channel_params,
-        timeout=10
-    )
+    channel_response = requests.get(channel_url, params=channel_params, timeout=10)
 
     if channel_response.status_code != 200:
-         print("ERROR DE YOUTUBE")
-         print("CODIGO:", channel_response.status_code)
-         print("RESPUESTA:", channel_response.text)
-         return []
-        
+        print("ERROR DE YOUTUBE")
+        print(channel_response.text)
+        return []
 
     channel_data = channel_response.json()
 
     if not channel_data.get("items"):
         return []
 
-    uploads_playlist_id = (
-        channel_data["items"][0]
-        ["contentDetails"]
-        ["relatedPlaylists"]
-        ["uploads"]
-    )
+    uploads_playlist_id = channel_data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
-    # 2. Obtener los videos
     playlist_url = "https://www.googleapis.com/youtube/v3/playlistItems"
 
     playlist_params = {
@@ -78,12 +64,7 @@ def obtener_videos_youtube(max_results=20):
         "key": YOUTUBE_API_KEY
     }
 
-    playlist_response = requests.get(
-        playlist_url,
-        params=playlist_params,
-        timeout=10
-    )
-
+    playlist_response = requests.get(playlist_url, params=playlist_params, timeout=10)
     playlist_response.raise_for_status()
 
     playlist_data = playlist_response.json()
@@ -91,7 +72,6 @@ def obtener_videos_youtube(max_results=20):
     videos = []
 
     for item in playlist_data.get("items", []):
-
         video_id = item["contentDetails"]["videoId"]
         snippet = item["snippet"]
 
@@ -105,67 +85,44 @@ def obtener_videos_youtube(max_results=20):
 
     return videos
 
-
-# ==========================================
-# PÁGINA DE VIDEOS
-# ==========================================
 
 @app.route("/videos")
 def videos():
-
     youtube_videos = obtener_videos_youtube(200)
-
-    return render_template(
-        "videos.html",
-        videos=youtube_videos
-    )
+    return render_template("videos.html", videos=youtube_videos)
 
 
-# VIDEOS DEL GATO 
- 
- 
-# ID de tu canal de YouTube
-YOUTUBE_CHANNEL_ID = "UCuY2tmTA99EaUW214gP6EMg"
 
+# ==========================================
+# CANAL DE MICHI
+# ==========================================
 
 def videos_youtube(max_results=200):
 
-    # 1. Obtener el Uploads Playlist ID
+    canal_michi = "UCuY2tmTA99EaUW214gP6EMg"
+
     channel_url = "https://www.googleapis.com/youtube/v3/channels"
 
     channel_params = {
         "part": "contentDetails",
         "key": YOUTUBE_API_KEY,
-        "id": YOUTUBE_CHANNEL_ID
-        
+        "id": canal_michi
     }
 
-    channel_response = requests.get(
-        channel_url,
-        params=channel_params,
-        timeout=10
-    )
+    channel_response = requests.get(channel_url, params=channel_params, timeout=10)
 
     if channel_response.status_code != 200:
-         print("ERROR DE YOUTUBE")
-         print("CODIGO:", channel_response.status_code)
-         print("RESPUESTA:", channel_response.text)
-         return []
-        
+        print("ERROR DE YOUTUBE")
+        print(channel_response.text)
+        return []
 
     channel_data = channel_response.json()
 
     if not channel_data.get("items"):
         return []
 
-    uploads_playlist_id = (
-        channel_data["items"][0]
-        ["contentDetails"]
-        ["relatedPlaylists"]
-        ["uploads"]
-    )
+    uploads_playlist_id = channel_data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
-    # 2. Obtener los videos
     playlist_url = "https://www.googleapis.com/youtube/v3/playlistItems"
 
     playlist_params = {
@@ -175,12 +132,7 @@ def videos_youtube(max_results=200):
         "key": YOUTUBE_API_KEY
     }
 
-    playlist_response = requests.get(
-        playlist_url,
-        params=playlist_params,
-        timeout=10
-    )
-
+    playlist_response = requests.get(playlist_url, params=playlist_params, timeout=10)
     playlist_response.raise_for_status()
 
     playlist_data = playlist_response.json()
@@ -188,7 +140,6 @@ def videos_youtube(max_results=200):
     videos = []
 
     for item in playlist_data.get("items", []):
-
         video_id = item["contentDetails"]["videoId"]
         snippet = item["snippet"]
 
@@ -201,18 +152,9 @@ def videos_youtube(max_results=200):
         })
 
     return videos
-
 
 
 @app.route("/michi")
 def michi():
-
-    youtube_videos =  videos_youtube(200)
-
-    return render_template(
-        "michi.html",
-        videos=youtube_videos
-    )
-
-    
- 
+    youtube_videos = videos_youtube(200)
+    return render_template("michi.html", videos=youtube_videos)

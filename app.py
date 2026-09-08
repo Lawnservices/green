@@ -122,7 +122,7 @@ def videos():
 
 
 # VIDEOS DEL GATO 
-YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
+ 
  
 # ID de tu canal de YouTube
 YOUTUBE_CHANNEL_ID = "UCuY2tmTA99EaUW214gP6EMg"

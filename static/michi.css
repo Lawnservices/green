@@ -75,7 +75,11 @@ footer {
     color: #fff;
 }
 
-/* videos */
+
+/* ==============================
+   VIDEOS GRID
+============================== */
+
 .videos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -130,29 +134,6 @@ footer {
 
 
 /* ==============================
-   LOADING
-============================== */
-
-#loading {
-    padding: 20px 0;
-    text-align: center;
-    color: #666;
-    font-size: 16px;
-}
-
-
-/* ==============================
-   ERROR
-============================== */
-
-#error {
-    color: #c00;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-
-/* ==============================
    NO VIDEOS
 ============================== */
 
@@ -170,22 +151,9 @@ footer {
 ============================== */
 
 @media (max-width: 900px) {
-
-    main {
-        width: 94%;
-    }
-
     .videos {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-    }
-
-    .header h1 {
-        font-size: 28px;
-    }
-
-    #videoTitle {
-        font-size: 20px;
     }
 }
 
@@ -195,91 +163,13 @@ footer {
 ============================== */
 
 @media (max-width: 600px) {
-
-    main {
-        width: 95%;
-    }
-
-    .header {
-        padding: 15px 10px;
-        margin-bottom: 20px;
-    }
-
-    .header h1 {
-        font-size: 25px;
-    }
-
-    .header p {
-        font-size: 15px;
-    }
-
-    .player-container {
-        margin-bottom: 30px;
-    }
-
-    .player {
-        border-radius: 8px;
-    }
-
-    #videoTitle {
-        margin-top: 12px;
-        font-size: 18px;
-    }
-
-    .section-title {
-        font-size: 21px;
-        margin-bottom: 15px;
-    }
-
     .videos {
         grid-template-columns: 1fr;
         gap: 18px;
-    }
-
-    .video-card {
-        border-radius: 10px;
     }
 
     .video-card h3 {
         padding: 12px;
         font-size: 16px;
     }
-}
-
-
-/* ==============================
-   SMALL PHONES
-============================== */
-
-@media (max-width: 400px) {
-
-    main {
-        width: 96%;
-    }
-
-    .header h1 {
-        font-size: 22px;
-    }
-
-    .header p {
-        font-size: 14px;
-    }
-
-    #videoTitle {
-        font-size: 17px;
-    }
-
-    .section-title {
-        font-size: 20px;
-    }
-
-    .video-card h3 {
-        font-size: 15px;
-    }
-}
-
-.video-views {
-    padding: 0 15px 15px;
-    color: #666;
-    font-size: 14px;
 }

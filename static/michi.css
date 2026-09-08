@@ -1,22 +1,40 @@
-body {
+
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-    color: #333;
+    padding: 0;
 }
 
 
-/* =========================
+/* ==================================================
+   BODY
+================================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    line-height: 1.5;
+}
+
+
+/* ==================================================
    HERO
-========================= */
+================================================== */
 
 .hero {
     width: 100%;
-    min-height:6vh;
-    padding:20px 10px;
-    box-sizing: border-box;
+    min-height: 60vh;
+
+    padding: 40px 20px;
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
@@ -29,7 +47,10 @@ body {
     );
 }
 
-/* Foto de Michi */
+
+/* ==================================================
+   FOTO DE MICHI
+================================================== */
 
 .hero-img {
     width: 220px;
@@ -46,7 +67,10 @@ body {
     margin-bottom: 25px;
 }
 
-/* Título */
+
+/* ==================================================
+   TITULO
+================================================== */
 
 .hero h1 {
     margin: 10px 0;
@@ -56,9 +80,13 @@ body {
     color: #333;
 }
 
-/* Descripción */
+
+/* ==================================================
+   DESCRIPCION
+================================================== */
 
 .hero p {
+    width: 100%;
     max-width: 650px;
 
     margin: 10px auto 30px;
@@ -71,26 +99,28 @@ body {
 }
 
 
-/* =========================
-   NAVEGACIÓN
-========================= */
+/* ==================================================
+   NAVEGACION
+================================================== */
 
 .michi-nav {
+    width: 100%;
+    max-width: 750px;
+
     display: flex;
 
-    justify-content: center;
     align-items: center;
-
-    gap: 15px;
+    justify-content: center;
 
     flex-wrap: wrap;
 
-    width: 100%;
-    max-width: 700px;
+    gap: 15px;
 }
 
 
-/* Botones */
+/* ==================================================
+   BOTONES
+================================================== */
 
 .nav-btn {
     display: inline-flex;
@@ -98,7 +128,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    min-width: 150px;
+    min-width: 160px;
 
     padding: 14px 22px;
 
@@ -124,18 +154,16 @@ body {
 }
 
 
-/* Hover PC */
-
 .nav-btn:hover {
     transform: translateY(-4px);
 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
-
-    background: #fff;
 }
 
 
-/* Botón de videos */
+/* ==================================================
+   BOTON VIDEOS
+================================================== */
 
 .videos-btn {
     background: #222;
@@ -143,8 +171,6 @@ body {
     color: white;
 }
 
-
-/* Hover Videos */
 
 .videos-btn:hover {
     background: #000;
@@ -155,159 +181,352 @@ body {
 }
 
 
+/* ==================================================
+   MAIN
+================================================== */
 
-.player-container {
-    margin-bottom: 45px;
+main {
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 0 auto;
 }
 
-.player {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 
-    /* Centrar la imagen */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ==================================================
+   SECCIONES
+================================================== */
+
+.section {
+    padding: 50px 20px;
+
+    text-align: center;
 }
 
-.player-placeholder {
-    width: auto;
-    height: auto;
-    max-width: 60%;
-    max-height: 80%;
-    object-fit: contain;
-    display: block;
-}
-
-.player iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: none;
-}
-
-#videoTitle {
-    margin-top: 15px;
-    font-size: 22px;
-    line-height: 1.4;
-    color: #222;
-}
-
- 
-
-
-
-
-/* ==============================
-   SECTION TITLE
-============================== */
 
 .section-title {
     margin-bottom: 20px;
+
     font-size: 25px;
+
+    color: #222;
 }
 
 
-/* ==============================
-   VIDEOS GRID
-============================== */
+/* ==================================================
+   GALERIA
+================================================== */
+
+.galeria-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 20px;
+
+    padding: 20px 0;
+}
+
+
+.galeria-grid img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==================================================
+   CONTENEDOR DEL VIDEO
+================================================== */
+
+.video-container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 30px auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 0;
+}
+
+
+/* ==================================================
+   IFRAME
+================================================== */
+
+.video-container iframe {
+    width: 100%;
+
+    max-width: 800px;
+
+    aspect-ratio: 16 / 9;
+
+    height: auto;
+
+    border: none;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+
+/* ==================================================
+   REPRODUCTOR
+================================================== */
+
+.player-container {
+    width: 100%;
+
+    margin-bottom: 45px;
+}
+
+
+.player {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* ==================================================
+   IMAGEN PLACEHOLDER
+================================================== */
+
+.player-placeholder {
+    width: auto;
+
+    height: auto;
+
+    max-width: 60%;
+
+    max-height: 80%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ==================================================
+   YOUTUBE PLAYER
+================================================== */
+
+#youtubePlayer {
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    display: none;
+}
+
+
+/* ==================================================
+   TITULO DEL VIDEO
+================================================== */
+
+#videoTitle {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 15px auto 0;
+
+    font-size: 22px;
+
+    line-height: 1.4;
+
+    color: #222;
+}
+
+
+/* ==================================================
+   GRID DE VIDEOS
+================================================== */
 
 .videos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 25px;
+
     padding-bottom: 40px;
 }
 
 
-/* ==============================
-   VIDEO CARD
-============================== */
+/* ==================================================
+   TARJETA DE VIDEO
+================================================== */
 
 .video-card {
     background: #ffffff;
+
     border-radius: 12px;
+
     overflow: hidden;
+
     cursor: pointer;
+
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
 
 .video-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 
-/* ==============================
-   VIDEO THUMBNAIL
-============================== */
+/* ==================================================
+   MINIATURA
+================================================== */
 
 .video-card img {
     display: block;
+
     width: 100%;
+
     aspect-ratio: 16 / 9;
+
     object-fit: cover;
 }
 
 
-/* ==============================
-   VIDEO TITLE
-============================== */
+/* ==================================================
+   TITULO VIDEO
+================================================== */
 
 .video-card h3 {
     padding: 15px;
+
     font-size: 17px;
+
     line-height: 1.4;
+
     color: #222;
 }
 
 
-/* ==============================
-   LOADING
-============================== */
+/* ==================================================
+   VISTAS
+================================================== */
+
+.video-views {
+    padding: 0 15px 15px;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   CARGANDO
+================================================== */
 
 #loading {
     padding: 20px 0;
+
     text-align: center;
+
     color: #666;
+
     font-size: 16px;
 }
 
 
-/* ==============================
+/* ==================================================
    ERROR
-============================== */
+================================================== */
 
 #error {
     color: #c00;
+
     margin-bottom: 20px;
+
     text-align: center;
 }
 
 
-/* ==============================
-   NO VIDEOS
-============================== */
+/* ==================================================
+   SIN VIDEOS
+================================================== */
 
 .no-videos {
     background: #ffffff;
+
     padding: 25px;
+
     border-radius: 10px;
+
     text-align: center;
+
     color: #666;
 }
 
 
-/* ==============================
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+    text-align: center;
+
+    padding: 20px;
+
+    background: #ffcc80;
+
+    color: #fff;
+}
+
+
+/* ==================================================
    TABLET
-============================== */
+================================================== */
 
 @media (max-width: 900px) {
 
@@ -315,14 +534,32 @@ body {
         width: 94%;
     }
 
+
+    .hero {
+        min-height: 55vh;
+
+        padding: 35px 20px;
+    }
+
+
+    .hero-img {
+        width: 190px;
+        height: 190px;
+    }
+
+
     .videos {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
+
         gap: 20px;
     }
 
-    .header h1 {
+
+    .hero h1 {
         font-size: 28px;
     }
+
 
     #videoTitle {
         font-size: 20px;
@@ -330,9 +567,9 @@ body {
 }
 
 
-/* ==============================
+/* ==================================================
    MOBILE
-============================== */
+================================================== */
 
 @media (max-width: 600px) {
 
@@ -340,56 +577,141 @@ body {
         width: 95%;
     }
 
-    .header {
-        padding: 15px 10px;
+
+    .hero {
+        min-height: auto;
+
+        padding: 35px 15px;
+    }
+
+
+    .hero-img {
+        width: 170px;
+        height: 170px;
+
         margin-bottom: 20px;
     }
 
-    .header h1 {
+
+    .hero h1 {
         font-size: 25px;
     }
 
-    .header p {
+
+    .hero p {
         font-size: 15px;
+
+        margin-bottom: 25px;
     }
+
+
+    /* Navegación vertical */
+
+    .michi-nav {
+        flex-direction: column;
+
+        gap: 12px;
+
+        width: 100%;
+    }
+
+
+    .nav-btn {
+        width: 90%;
+
+        max-width: 350px;
+
+        padding: 15px 20px;
+    }
+
+
+    /* Player */
 
     .player-container {
         margin-bottom: 30px;
     }
 
+
     .player {
         border-radius: 8px;
     }
 
+
     #videoTitle {
         margin-top: 12px;
+
         font-size: 18px;
     }
 
+
+    .section {
+        padding: 35px 10px;
+    }
+
+
     .section-title {
         font-size: 21px;
+
         margin-bottom: 15px;
     }
 
+
+    /* Videos */
+
     .videos {
         grid-template-columns: 1fr;
+
         gap: 18px;
     }
+
 
     .video-card {
         border-radius: 10px;
     }
 
+
     .video-card h3 {
         padding: 12px;
+
         font-size: 16px;
+    }
+
+
+    /* Galería */
+
+    .galeria-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+        padding: 15px 0;
+    }
+
+
+    .video-container {
+        margin: 20px auto;
+    }
+
+
+    .video-container iframe {
+        width: 100%;
+
+        border-radius: 8px;
+    }
+
+
+    footer {
+        padding: 18px 10px;
+
+        font-size: 14px;
     }
 }
 
 
-/* ==============================
-   SMALL PHONES
-============================== */
+/* ==================================================
+   TELEFONOS PEQUEÑOS
+================================================== */
 
 @media (max-width: 400px) {
 
@@ -397,29 +719,40 @@ body {
         width: 96%;
     }
 
-    .header h1 {
+
+    .hero-img {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .hero h1 {
         font-size: 22px;
     }
 
-    .header p {
+
+    .hero p {
         font-size: 14px;
     }
+
 
     #videoTitle {
         font-size: 17px;
     }
 
+
     .section-title {
         font-size: 20px;
     }
 
+
     .video-card h3 {
         font-size: 15px;
     }
+
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.video-views {
-    padding: 0 15px 15px;
-    color: #666;
-    font-size: 14px;
-}

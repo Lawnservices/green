@@ -33,45 +33,51 @@
         </div>
     </section>
 
-     
-     <section>
-
-        <h2 class="section-title">
-             Videos de Michi
-        </h2>
-
-        {% if video %}
-
-        <div class="video">
-
-            {% for video in video %}
-
-            <article class="video-card"
-                     onclick="playVideo('{{ video.id }}', '{{ video.title|e }}')">
-
-                <img
-                    src="{{ video.thumbnail }}"
-                    alt="{{ video.title|e }}"
-                    loading="lazy"
-                >
-
-                <h3>{{ video.title }}</h3>
-
-            </article>
-
-            {% endfor %}
-
+    <section id="videos" class="section">
+        <h2>Videos de Michi</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/o6nsEofAUrc?si=r0xKjDF_nAXMp_ma" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-
-        {% else %}
-
-        <p class="no-videos">
-            No videos are available at this time.
-        </p>
-
-        {% endif %}
-
     </section>
+      
+      <section>
+
+    <h2 class="section-title">
+         Videos de Michi
+    </h2>
+
+    {% if videos %}
+
+    <div class="video">
+
+        {% for video in videos %}
+
+        <article class="video-card"
+                 onclick="playVideo('{{ video.id }}', '{{ video.title|e }}')">
+
+            <img
+                src="{{ video.thumbnail }}"
+                alt="{{ video.title|e }}"
+                loading="lazy"
+            >
+
+            <h3>{{ video.title }}</h3>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <p class="no-videos">
+        No videos are available at this time.
+    </p>
+
+    {% endif %}
+
+</section>
 
     <footer>
         <p>© 2026 Michi — Página creada por Miguel Laguna</p>

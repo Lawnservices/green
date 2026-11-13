@@ -23,7 +23,7 @@ def contact():
  
 @app.route('/formulario')
 def formulario():
-    return render_template('formulario')
+    return render_template('formulario.html')
  
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='formulario.css') }}">
+    <title>Clientes nuevos</title>
+</head>
+<body>
+    <h1>Clentes nuevos registrate</h1>
+
+    <div class="formulario">
+        <form id="formulario">
+            <input type="text" name="nombre" id="nombre" placeholder="ponga su nombre" required>
+            <input type="tel" name="telefono" id="telefono" placeholder="ponga su numero de telefono" required>
+            <input type="text" name="mensaje" id="mensaje" placeholder="ponga su mensaje" required>
+            <button id="enviar">Enviar</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

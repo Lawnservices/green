@@ -10,12 +10,76 @@
     <h1>Clentes nuevos registrate</h1>
 
     <div class="formulario">
-        <form id="formulario">
-            <input type="text" name="nombre" id="nombre" placeholder="ponga su nombre" required>
-            <input type="tel" name="telefono" id="telefono" placeholder="ponga su numero de telefono" required>
-            <input type="text" name="mensaje" id="mensaje" placeholder="ponga su mensaje" required>
-            <button id="enviar">Enviar</button>
-        </form>
+          <form action="https://www.creantunegocio.com/mensaje" method="POST">
+
+        <div class="form-group">
+          <label for="name">
+            <i class="fa-solid fa-user"></i> Name
+          </label>
+
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your full name"
+            required
+            pattern="[A-Za-z\s]+"
+            title="Only letters and spaces are allowed"
+            maxlength="30"
+            autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="tel">
+            <i class="fa-solid fa-phone"></i> Phone Number
+          </label>
+
+          <input
+            type="tel"
+            name="tel"
+            id="tel"
+            placeholder="Enter your 10-digit phone number"
+            required
+            inputmode="numeric"
+            pattern="[0-9]{10}"
+            title="Please enter a 10-digit phone number without spaces or dashes"
+            maxlength="10"
+            autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="message">
+            <i class="fa-solid fa-message"></i> Your Message
+          </label>
+
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Tell us what lawn care service you need..."
+            maxlength="100"
+            required></textarea>
+
+          <p class="form-note">
+            Maximum 100 characters.
+          </p>
+        </div>
+
+        <button class="submit-button" type="submit">
+          <i class="fa-solid fa-paper-plane"></i>
+          Send My Request
+        </button>
+
+        <div class="privacy-note">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div>
+            Please provide accurate contact information so we can respond
+            to your request. Read our
+            <a href="/privacy.html">Privacy Policy</a>.
+          </div>
+        </div>
+
+      </form>
+
     </div>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>

@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% block extra_css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='formulario.css') }}">
-    <title>Clientes nuevos</title>
-</head>
-<body>
+{% endblock %}    
+  
+{% block content %}
+
     <h1>New customers, register here</h1>
 
     <div class="formulario">
@@ -81,7 +79,8 @@
       </form>
 
     </div>
+{% endblock %}
 
+{% block extra_js %}
     <script src="{{ url_for('static', filename='app.js') }}"></script>
-</body>
-</html>
+{% endblock %} 
